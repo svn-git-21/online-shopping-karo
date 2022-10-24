@@ -8,7 +8,7 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<javaee.version>7.0</javaee.version>
-
+		<spring.version>4.3.6.RELEASE</spring.version>
 	</properties>
 	<dependencies>
 
@@ -27,7 +27,27 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- SPRING -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- JSTL -->
+
+		<!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
 	</dependencies>
+
+
 	<build>
 		<!-- Updated for the latest version of JAVA -->
 		<plugins>
@@ -40,10 +60,10 @@
 				</configuration>
 			</plugin>
 			<plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-war-plugin</artifactId>
-      <version>3.3.2</version>
-    </plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.2</version>
+			</plugin>
 		</plugins>
 		<finalName>onlineshopping-frontend</finalName>
 	</build>
