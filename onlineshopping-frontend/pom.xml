@@ -11,7 +11,14 @@
 		<spring.version>4.3.6.RELEASE</spring.version>
 	</properties>
 	<dependencies>
-
+		
+		<!-- Linking Backend module with frontend-->
+		<dependency>
+		<groupId>com.svk</groupId>
+  		<artifactId>onlineshopping-backend</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
 			<groupId>javax</groupId>
