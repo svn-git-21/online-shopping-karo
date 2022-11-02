@@ -53,10 +53,15 @@
 						class="table table-striped table-bordered">
 						<thead>
 							<tr>
-								<th>ID</th>
+								<th></th>
 								<th>Name</th>
+								<th>Brand</th>
+								<th>Unit Price</th>
+								<th>Quantity</th>
+								<th></th>
 							</tr>
 						</thead>
+						
 					</table>
 				</div>
 			</div>

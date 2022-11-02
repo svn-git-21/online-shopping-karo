@@ -1,6 +1,4 @@
-    <div class="container footer">
-
-        <hr>
+      <hr>
         <footer>
             <div class="row">
                 <div class="col-lg-12">
@@ -8,5 +6,3 @@
                 </div>
             </div>
         </footer>
-
-    </div>
