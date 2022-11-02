@@ -5,44 +5,60 @@
 
 		<!-- Would be to display sidebar -->
 		<div class="col-md-3">
-		
+
 			<%@include file="./shared/sidebar.jsp"%>
-			
+
 		</div>
 
-	<!-- display the actual products -->
-	<div class="col-md-9">
-		<!-- added breadcrumb component -->
-		<div class="row">
-			<div class="col-lg-12">
-				<c:if test="${userClickAllProduct == true}">
+		<!-- display the actual products -->
+		<div class="col-md-9">
 
-					<script>
-						window.categoryId = '';
-					</script>
-					<ol class="breadcrumb">
-						<li><a href="${contextRoot}/home">Home</a></li>
-						<li class="active">All Products</li>
+			<!-- added breadcrumb component -->
+			<div class="row">
+				<div class="col-lg-12">
+					<c:if test="${userClickAllProduct == true}">
 
-					</ol>
-				</c:if>
+						<script>
+							window.categoryId = '';
+						</script>
+						<ol class="breadcrumb">
+							<li><a href="${contextRoot}/home">Home</a></li>
+							<li class="active">All Products</li>
 
-				<c:if test="${userClickCategoryProduct == true}">
-					<script>
-						window.categoryId = '${category.id}';
-					</script>
+						</ol>
+					</c:if>
 
-					<ol class="breadcrumb">
+					<c:if test="${userClickCategoryProduct == true}">
+						<script>
+							window.categoryId = '${category.id}';
+						</script>
 
-
-						<li><a href="${contextRoot}/home">Home</a></li>
-						<li class="active">Category</li>
-						<li class="active">${category.name}</li>
+						<ol class="breadcrumb">
 
 
-					</ol>
-				</c:if>
+							<li><a href="${contextRoot}/home">Home</a></li>
+							<li class="active">Category</li>
+							<li class="active">${category.name}</li>
+
+
+						</ol>
+					</c:if>
+				</div>
+			</div>
+			<div class="row">
+
+				<div class="col-xs-12">
+
+					<table id="productListTable"
+						class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Name</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>

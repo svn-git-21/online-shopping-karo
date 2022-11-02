@@ -63,12 +63,13 @@
 				<%@include file="contacts.jsp"%>
 			</c:if>
 			<!-- /.container -->
-			
+
 			<!-- Include this page only when user clicks All Products or category products -->
-			<c:if test="${userClickAllProduct == true or userClickCategoryProduct == true}">
+			<c:if
+				test="${userClickAllProduct == true or userClickCategoryProduct == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
-			
+
 		</div>
 
 		<!-- Footer -->
@@ -80,6 +81,9 @@
 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
+		
+		<!-- jQuery dataTables -->
+		<script src="${js}/jquery.dataTables.js"></script>
 
 		<!-- Self coded JavaScript -->
 		<script src="${js}/myapp.js"></script>
