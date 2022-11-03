@@ -14,6 +14,7 @@ import com.svk.onlineshopping_backend.dao.CategoryDAO;
 import com.svk.onlineshopping_backend.dao.ProductDAO;
 import com.svk.onlineshopping_backend.dto.Category;
 import com.svk.onlineshopping_backend.dto.Product;
+import com.svk.onlineshopping_frontend.exception.ProductNotFoundException;
 
 @Controller
 public class PageController {
@@ -87,10 +88,12 @@ public class PageController {
 	}
 	
 	@RequestMapping(value ="/show/{id}/products")
-	public ModelAndView showSingleProduct(@PathVariable("id") int id)
+	public ModelAndView showSingleProduct(@PathVariable("id") int id) throws ProductNotFoundException
 	{
 		ModelAndView mv = new ModelAndView("page");
 		Product product =productDAO.get(id);
+		 
+		if(product == null) throw new ProductNotFoundException();
 		
 		//update the view count
 		product.setViews(product.getViews() +1 );
