@@ -18,7 +18,8 @@
 			<ul class="nav navbar-nav">
 				<li id="about"><a href="${contextRoot}/about">About</a></li>
 				<li id="contacts"><a href="${contextRoot}/contacts">Contact us</a></li>
-				<li id="listProduct"><a href="${contextRoot}/show/all/products">Products</a></li>
+				<li id="listProduct"><a href="${contextRoot}/show/all/products">View Products</a></li>
+				<li id="manageProduct"><a href="${contextRoot}/manage/products">Manage Products</a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
