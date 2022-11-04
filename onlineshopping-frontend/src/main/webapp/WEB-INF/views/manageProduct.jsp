@@ -4,13 +4,13 @@
 
 		<c:if test="${not empty message}">
 			<div class="col-xs-12">
-			<div class="alert alert-success alert=dismissable">
-			<button type="button" class="close" data-dismiss="alert">&times;</button>
-			
-			${message}
-			
-			</div>
-			
+				<div class="alert alert-success alert=dismissable">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+					${message}
+
+				</div>
+
 			</div>
 
 		</c:if>
@@ -26,14 +26,14 @@
 
 					<!-- form elements -->
 					<sf:form class="form-horizontal" modelAttribute="Product"
-						action="${contextRoot}/manage/products" method="POST">
+						action="${contextRoot}/manage/products" method="POST" enctype="multipart/form-data">
 						<div class="form-group">
 							<label class="control-label col-md-4" for="name">Enter
 								Product Name</label>
 							<div class="col-md-8">
 								<sf:input type="text" path="name" id="name"
 									placeholder="Product Name" class="form-control" />
-								<em class="help-block">Please enter product Name !</em>
+								<sf:errors path="name" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
@@ -43,7 +43,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="brand" id="brand"
 									placeholder="Brand Name" class="form-control" />
-								<em class="help-block">Please enter brand Name !</em>
+								<sf:errors path="brand" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
@@ -53,7 +53,7 @@
 							<div class="col-md-8">
 								<sf:textarea path="description" id="description"
 									class="form-control" placeholder="Description" rows="4"></sf:textarea>
-								<em class="help-block">Please enter description !</em>
+								<sf:errors path="description" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
@@ -63,7 +63,7 @@
 							<div class="col-md-8">
 								<sf:input type="number" path="unitPrice" id="unitPrice"
 									placeholder="Unit Price in &#8377" class="form-control" />
-								<em class="help-block">Please enter brand Name !</em>
+								<sf:errors path="unitPrice" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
@@ -72,29 +72,25 @@
 							<div class="col-md-8">
 								<sf:input type="number" path="quantity" id="quantity"
 									placeholder="Quantity in &#8377" class="form-control" />
-								<em class="help-block">Please enter Quantity !</em>
-							</div>
-						</div>
-
-						<!--  
-						<div class="form-group">
-							<label for="formFile" class="control-label col-md-4">Upload Image</label>
-							<div class="col-md-8">
-								<input class="form-control" type="file" id="formFile"> 
-								<em class="help-block">Please upload image</em>
 							</div>
 						</div>
 						
-						-->
+						<!-- File Upload element -->
+						<div class="form-group">
+							<label for="file" class="control-label col-md-4">Upload Image</label>
+							<div class="col-md-8">
+								<sf:input type="file" path="file" id="file"
+									 class="form-control" />
+								<sf:errors path="file" cssClass="help-block" element="em"/> 
+							</div>
+						</div>
 
 						<div class="form-group">
 							<label class="control-label col-md-4">Category</label>
 							<div class="col-md-8">
-								<sf:select class="from-control" id="categoryId"
-									path="categoryId" items="${categories}" itemLabel="name"
-									itemValue="id" />
 
-								</select>
+								<sf:select path="categoryId" items="${categories}"
+									itemLabel="name" itemValue="id" class="form-control" />
 							</div>
 						</div>
 

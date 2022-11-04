@@ -2,10 +2,15 @@ package com.svk.onlineshopping_frontend.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +21,7 @@ import com.svk.onlineshopping_backend.dao.CategoryDAO;
 import com.svk.onlineshopping_backend.dao.ProductDAO;
 import com.svk.onlineshopping_backend.dto.Category;
 import com.svk.onlineshopping_backend.dto.Product;
+import com.svk.onlineshopping_frontend.util.FileUploadUtility;
 
 @Controller
 @RequestMapping("/manage")
@@ -55,10 +61,24 @@ public class ManagementController {
 	
 	//handling product submission
 	@RequestMapping(value="/products", method=RequestMethod.POST)
-	public String handleProductSubmission(@ModelAttribute("Product") Product mProduct)
+	public String handleProductSubmission(@Valid @ModelAttribute("Product") Product mProduct, 
+			BindingResult results, Model model, HttpServletRequest request)
 	{
+		if(results.hasErrors())
+		{
+			model.addAttribute("userClickManageProduct", true);
+			model.addAttribute("title","Manage Product");
+			model.addAttribute("message", "Validation failed");
+			return "page";
+			
+		}
 		logger.info(mProduct.toString());
 		productDAO.add(mProduct);
+		
+		if(!mProduct.getFile().getOriginalFilename().equals(""))
+		{
+			FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
+		}
 		return "redirect:/manage/products?operation=Product";
 	}
 	
