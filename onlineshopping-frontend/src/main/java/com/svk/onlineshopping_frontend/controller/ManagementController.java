@@ -22,6 +22,7 @@ import com.svk.onlineshopping_backend.dao.ProductDAO;
 import com.svk.onlineshopping_backend.dto.Category;
 import com.svk.onlineshopping_backend.dto.Product;
 import com.svk.onlineshopping_frontend.util.FileUploadUtility;
+import com.svk.onlineshopping_frontend.validator.ProductValidator;
 
 @Controller
 @RequestMapping("/manage")
@@ -64,6 +65,9 @@ public class ManagementController {
 	public String handleProductSubmission(@Valid @ModelAttribute("Product") Product mProduct, 
 			BindingResult results, Model model, HttpServletRequest request)
 	{
+		
+		new ProductValidator().validate(mProduct, results);
+		
 		if(results.hasErrors())
 		{
 			model.addAttribute("userClickManageProduct", true);
