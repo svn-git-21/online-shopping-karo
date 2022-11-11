@@ -26,7 +26,8 @@
 
 					<!-- form elements -->
 					<sf:form class="form-horizontal" modelAttribute="Product"
-						action="${contextRoot}/manage/products" method="POST" enctype="multipart/form-data">
+						action="${contextRoot}/manage/products" method="POST"
+						enctype="multipart/form-data">
 						<div class="form-group">
 							<label class="control-label col-md-4" for="name">Enter
 								Product Name</label>
@@ -74,14 +75,14 @@
 									placeholder="Quantity in &#8377" class="form-control" />
 							</div>
 						</div>
-						
+
 						<!-- File Upload element -->
 						<div class="form-group">
-							<label for="file" class="control-label col-md-4">Upload Image</label>
+							<label for="file" class="control-label col-md-4">Upload
+								Image</label>
 							<div class="col-md-8">
-								<sf:input type="file" path="file" id="file"
-									 class="form-control" />
-								<sf:errors path="file" cssClass="help-block" element="em"/> 
+								<sf:input type="file" path="file" id="file" class="form-control" />
+								<sf:errors path="file" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
@@ -111,6 +112,56 @@
 
 					</sf:form>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Avaliable Products</h3>
+			</hr>
+		</div>
+		<div class="col-xs-12">
+			<div style="overflow: auto">
+				<!-- Products table for Admin -->
+				<table id="adminProductsTable"
+					class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>&#160;</th>
+							<th>Name</th>
+							<th>Quantity</th>
+							<th>Unit Price</th>
+							<th>Active</th>
+							<th>Edit</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td>4</td>
+							<td><img class="dataTableImg"
+								src="${contextRoot}/resources/images/PRDABC123DEFX.jpg"
+								alt="Macbook Pro" /></td>
+							<td>Macbook Pro</td>
+							<td>3</td>
+							<td>&#8377; 54000.00</td>
+							<td>
+							<label class="switch"> 
+							<input type="checkbox"
+									checked="checked" value="4" />
+									<div class="slider"></div>
+							</label>
+							</td>
+							<td><a href="${contextRoot}/manage/4/product"
+								class="btn btn-warning"> <span
+									class="glyphicon glyphiconicon-pencil"></span>
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+
 			</div>
 		</div>
 	</div>

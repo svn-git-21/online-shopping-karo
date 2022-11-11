@@ -98,8 +98,11 @@
 		<!-- jQuery dataTables -->
 		<script src="${js}/jquery.dataTables.js"></script>
 		
-				<!-- dataTables Bootstrap Script -->
+		<!-- dataTables Bootstrap Script -->
 		<script src="${js}/dataTables.bootstrap.js"></script>
+		
+		<!-- Bootbox Script -->
+		<script src="${js}/bootbox.min.js"></script>
 
 		<!-- Self coded JavaScript -->
 		<script src="${js}/myapp.js"></script>
