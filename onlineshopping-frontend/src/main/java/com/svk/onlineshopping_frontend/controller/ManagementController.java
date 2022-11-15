@@ -58,6 +58,10 @@ public class ManagementController {
 			{
 				mv.addObject("message", "Product Submitted Successfully");
 			}
+			else if(operation.equals("category"))
+			{
+			    mv.addObject("message", "Category Submitted Successfully");
+			}
 		}
 		return mv;
 	}
@@ -83,7 +87,21 @@ public class ManagementController {
 			BindingResult results, Model model, HttpServletRequest request)
 	{
 		
-		new ProductValidator().validate(mProduct, results);
+	    //handle image validation for new product
+	    
+	    if(mProduct.getId() ==0) 
+        {
+            //image validation if id is 0
+	        new ProductValidator().validate(mProduct, results);
+        }
+        else
+        {
+          if(!mProduct.getFile().getOriginalFilename().equals(""))
+          {
+              new ProductValidator().validate(mProduct, results);
+          }
+        }
+		
 		
 		if(results.hasErrors())
 		{
@@ -134,6 +152,15 @@ public class ManagementController {
 	    
 	}
 	
+	//To handle category submission
+	@RequestMapping(value="/category", method=RequestMethod.POST)
+	public String handleCategorySubmission(@ModelAttribute Category category)
+	{
+	    categoryDAO.add(category);
+        return "redirect:/manage/products?operation=category";
+	    
+	}
+	
 	
 	
 	//returning categories for all the request mapping
@@ -142,5 +169,11 @@ public class ManagementController {
 	{
 		return categoryDAO.list();
 	}
+	
+    @ModelAttribute("category")
+    public Category getCategory()
+    {
+        return new Category();
+    }
 
 }
