@@ -217,7 +217,7 @@ $(function() {
 						mRender: function(data, type, row)
 						{
 							var str = '';
-							str += '<a href="${contextRoot}/manage/'+data+'/product" class="btn btn-warning">';
+							str += '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-warning">';
 							str += '<span class="glyphicon glyphiconicon-pencil"></span></a>'
 							
 							return str;
@@ -232,43 +232,43 @@ $(function() {
 				{
 					var api=this.api();
 					api.$('.switch input[type="checkbox"]').on('change',function()
-	{
-		var checkbox = $(this);
-		var checked = checkbox.prop('checked');
-		var dMsg = (checked)? 'Do you want to activate the product?':
-								'Do you want to de-activate the product?';
-		var value = checkbox.prop('value');
-		
-		bootbox.confirm
-		(
-			{
-			size: 'medium',
-			title: 'Product activation and Deactivation',
-			message: dMsg,
-			callback: function(confirmed)
-			{
-				if(confirmed)
-				{
-					console.log(value);
-					
-					var activationURL = window.contextRoot + '/manage/product/' + value + '/activation';
-					$.post(activationURL, function(data)
 					{
-						bootbox.alert
-						({
+						var checkbox = $(this);
+						var checked = checkbox.prop('checked');
+						var dMsg = (checked)? 'Do you want to activate the product?':
+												'Do you want to de-activate the product?';
+						var value = checkbox.prop('value');
+						
+						bootbox.confirm
+						(
+							{
 							size: 'medium',
-							title: 'Information',
-							message: data
+							title: 'Product activation and Deactivation',
+							message: dMsg,
+							callback: function(confirmed)
+							{
+								if(confirmed)
+								{
+									console.log(value);
+									
+									var activationURL = window.contextRoot + '/manage/product/' + value + '/activation';
+									$.post(activationURL, function(data)
+									{
+										bootbox.alert
+										({
+											size: 'medium',
+											title: 'Information',
+											message: data
+										});
+									});
+								}
+								else
+								{
+									checkbox.prop('checked', !checked);
+								}
+							}
 						});
 					});
-				}
-				else
-				{
-					checkbox.prop('checked', !checked);
-				}
-			}
-		});
-	});
 				}
 			}
 			

@@ -62,6 +62,21 @@ public class ManagementController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/{id}/product", method=RequestMethod.GET)
+    public ModelAndView showEditProduct(@PathVariable int id)
+    {
+        ModelAndView mv = new ModelAndView("page");
+        
+        mv.addObject("userClickManageProduct", true);
+        mv.addObject("title","Manage Product");
+        
+        Product nProduct = productDAO.get(id);
+        
+        mv.addObject("Product", nProduct);
+        return mv;
+    }
+	
+	
 	//handling product submission
 	@RequestMapping(value="/products", method=RequestMethod.POST)
 	public String handleProductSubmission(@Valid @ModelAttribute("Product") Product mProduct, 
@@ -79,7 +94,18 @@ public class ManagementController {
 			
 		}
 		logger.info(mProduct.toString());
-		productDAO.add(mProduct);
+		
+		if(mProduct.getId() ==0) 
+		{
+		    //create a new product if id is 0
+		    productDAO.add(mProduct);
+		}
+		else
+		{
+		  //update a product if id is not 0
+		    productDAO.update(mProduct);
+		}
+		
 		
 		if(!mProduct.getFile().getOriginalFilename().equals(""))
 		{
