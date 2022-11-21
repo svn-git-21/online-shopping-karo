@@ -33,8 +33,10 @@ public class HibernateConfig {
 //	private String DATABASE_PASSWORD;
 	
 	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/online_shopping";
+//	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/onlineshopping_bkp";
+//	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/onlineshopping_testing";
 	private final static String DATABASE_DRIVER="com.mysql.cj.jdbc.Driver";
-	private final static String DATABASE_DIALECT="org.hibernate.dialect.MySQLDialect";
+	private final static String DATABASE_DIALECT="org.hibernate.dialect.MySQL5Dialect";
 	private final static String DATABASE_USERNAME="root";
 	private final static String DATABASE_PASSWORD="root";
 	
@@ -69,7 +71,7 @@ public class HibernateConfig {
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
 		
-		properties.put("hibernate.hbm2ddl.auto", "create");
+		properties.put("hibernate.hbm2ddl.auto", "update");
 		return properties;
 	}
 	
