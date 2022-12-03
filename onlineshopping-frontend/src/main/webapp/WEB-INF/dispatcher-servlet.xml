@@ -57,7 +57,7 @@
 			value="/**/*-flow.xml" />
 	</wf:flow-registry>
 	<wf:flow-builder-services
-		id="flowBuilderServices" view-factory-creator="viewFactoryCreator" />
+		id="flowBuilderServices" view-factory-creator="viewFactoryCreator" validator="validator" />
 
 	<bean
 		class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
@@ -71,8 +71,13 @@
 
 	<bean id="viewFactoryCreator"
 		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
-		<property name="viewResolvers" ref="viewResolver"/>
+		<property name="viewResolvers" ref="viewResolver" />
 	</bean>
+	
+	<!-- Validator bean -->
+	<bean id="validator" 
+	class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+	
 
 
 </beans>

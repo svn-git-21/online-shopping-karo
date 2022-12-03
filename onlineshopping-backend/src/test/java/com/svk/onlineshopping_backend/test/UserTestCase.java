@@ -155,23 +155,23 @@ public class UserTestCase {
      * }
      */
 
-    @Test
-    public void testAddAddress() {
-        user = userDAO.getByEmail("hr@gmail.com");
-        // we are also going to add shipping address
-        address = new Address();
-        address.setAddressLineOne("301/B Jadoo Society, Kishan Kanhaiya Nagar");
-        address.setAddressLineTwo("Near Kudrat Store");
-        address.setCity("Bangalore");
-        address.setState("Karnataka");
-        address.setCountry("India");
-        address.setPostalCode("400001");
-        address.setShipping(true);
-
-        address.setUser(user);
-        assertEquals("Failed to add shipping address", true,
-                userDAO.addAddress(address));
-    }
+//    @Test
+//    public void testAddAddress() {
+//        user = userDAO.getByEmail("hr@gmail.com");
+//        // we are also going to add shipping address
+//        address = new Address();
+//        address.setAddressLineOne("301/B Jadoo Society, Kishan Kanhaiya Nagar");
+//        address.setAddressLineTwo("Near Kudrat Store");
+//        address.setCity("Bangalore");
+//        address.setState("Karnataka");
+//        address.setCountry("India");
+//        address.setPostalCode("400001");
+//        address.setShipping(true);
+//
+//        address.setUser(user);
+//        assertEquals("Failed to add shipping address", true,
+//                userDAO.addAddress(address));
+//    }
     
     @Test
     public void testGetAddress()
