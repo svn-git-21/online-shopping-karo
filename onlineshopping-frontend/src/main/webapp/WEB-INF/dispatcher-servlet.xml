@@ -18,10 +18,12 @@
 		base-package="com.svk.onlineshopping_frontend">
 	</context:component-scan>
 
+	<!--
 	<context:component-scan
 		base-package="com.svk.onlineshopping_backend">
 	</context:component-scan>
 
+	  
 	<context:component-scan
 		base-package="com.svk.onlineshopping_backend.dto">
 	</context:component-scan>
@@ -29,7 +31,7 @@
 	<context:component-scan
 		base-package="com.svk.onlineshopping_backend.hibernate_config">
 	</context:component-scan>
-
+	-->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 
