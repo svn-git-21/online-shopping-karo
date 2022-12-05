@@ -73,7 +73,7 @@
 								<h4>Login</h4>
 							</div>
 							<div class="panel-body">
-								<form action="${contextRoot}/login" method="POST"
+								<form action="${contextRoot}/Login" method="POST"
 									class="form-horizontal" id="loginForm">
 									<div class="form-group">
 										<label for="username" class="col-md-4 control-label">Email:

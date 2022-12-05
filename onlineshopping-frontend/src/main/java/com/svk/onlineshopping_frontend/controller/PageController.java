@@ -106,14 +106,7 @@ public class PageController {
 		
 	}
 	
-	@RequestMapping(value = "/register")
-    public ModelAndView register()
-    {
-        ModelAndView mv = new ModelAndView("page");
-        mv.addObject("title","Register");
-        return mv;
-    }
-	
+
 	//login page
     @RequestMapping(value = "/login")
     public ModelAndView login(@RequestParam(name="error" , required=false) String error)
@@ -126,6 +119,19 @@ public class PageController {
 
         }
         mv.addObject("title","Login");
+        return mv;
+    }
+    
+  //access-denied page handler
+    @RequestMapping(value = "/access-denied")
+    public ModelAndView accessDenied()
+    {
+        ModelAndView mv = new ModelAndView("error");
+        
+        
+        mv.addObject("title","403 - Access Denied");
+        mv.addObject("errorTitle","Aha!  Caught You");
+        mv.addObject("errorDescription","You are not authorized to view this page!");
         return mv;
     }
 
