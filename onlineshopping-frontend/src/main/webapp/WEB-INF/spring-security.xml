@@ -13,16 +13,22 @@
 		base-package="com.svk.onlineshopping_backend">
 	</context:component-scan>
 
-	<http pattern="/resources/**" security="none"/>
+	<b:bean id="passwordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
+	<http pattern="/resources/**" security="none" />
 	<http>
 		<!-- Only admin access -->
-		<intercept-url pattern="/manage/**" access="hasAuthority('ADMIN')" />
-		<!-- Only user access (who is registered)-->
-		<intercept-url pattern="/cart/**" access="hasAuthority('USER')" />
+		<intercept-url pattern="/manage/**"
+			access="hasAuthority('ADMIN')" />
+		<!-- Only user access (who is registered) -->
+		<intercept-url pattern="/cart/**"
+			access="hasAuthority('USER')" />
 		<!-- Rest of world -->
 		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" />
-		<access-denied-handler error-page="/access-denied"/>
+		<access-denied-handler
+			error-page="/access-denied" />
 		<logout />
 	</http>
 
@@ -33,6 +39,8 @@
 				but makes reading in samples easier. Normally passwords should be hashed 
 				using BCrypt <user name="souvik" password="abc123" authorities="ROLE_USER, 
 				ROLE_ADMIN" /> </user-service> -->
+				
+				<password-encoder ref="passwordEncoder"/>
 			<jdbc-user-service data-source-ref="dataSource"
 				users-by-username-query="select email,password,enabled from user_detail where email=?"
 				authorities-by-username-query="select email,role from user_detail where email=?" />

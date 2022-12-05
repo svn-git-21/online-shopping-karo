@@ -113,11 +113,19 @@ $(function() {
 							
 							else
 							{
-								str+= '<a href="'+window.contextRoot+ '/cart/add/'+data+'/products" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+								if(userRole=='ADMIN')
+								{
+									str+= '<a href="'+window.contextRoot+ '/manage/'+data+'/products" class="btn btn-warning"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+								}
+								else
+								{
+									str+= '<a href="'+window.contextRoot+ '/cart/add/'+data+'/products" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+								}
+								
 							}
 							
 							
-							return str
+							return str;
 						}
 					}
 				]
@@ -216,6 +224,7 @@ $(function() {
 								str += '<input type="checkbox" value="'+row.id+'"/>';
 							}
 							
+							
 							str +='<div class="slider"></div></label>';
 							
 							return str;
@@ -229,9 +238,17 @@ $(function() {
 						mRender: function(data, type, row)
 						{
 							var str = '';
-							str += '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-warning">';
-							str += '<span class="glyphicon glyphiconicon-pencil"></span></a>'
+							//str += '<a href="'+window.contextRoot+'/manage/'+data+'/products" class="btn btn-primary">';
+							//str += '<span class="glyphicon glyphiconicon-pencil"></span></a>';
 							
+							str += '<a href="'
+												+ window.contextRoot
+												+ '/manage/'
+												+ data
+												+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a> &#160;';
+
+										return str;
+										
 							return str;
 
 							
