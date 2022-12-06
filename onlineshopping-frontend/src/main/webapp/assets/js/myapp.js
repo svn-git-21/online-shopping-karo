@@ -39,7 +39,7 @@ $(function() {
 	
 	//code for jquery dataTables
 	
-	// code for jquery dataTable
+	//code for jquery dataTable
 	var $table = $('#productListTable');
 
 	// execute the below code only where we have this table
@@ -106,24 +106,25 @@ $(function() {
 						{
 							var str ='';
 							str+= '<a href="'+window.contextRoot+ '/show/'+data+'/products" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';
-							if(row.quantity < 1)
+							
+							
+							if(userRole=='ADMIN')
 							{
-								str+= '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+								str+= '<a href="'+window.contextRoot+ '/manage/'+data+'/product" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span></a>';
 							}
 							
 							else
 							{
-								if(userRole=='ADMIN')
+								if(row.quantity < 1)
 								{
-									str+= '<a href="'+window.contextRoot+ '/manage/'+data+'/products" class="btn btn-warning"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+									str+= '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
 								}
+								
 								else
 								{
 									str+= '<a href="'+window.contextRoot+ '/cart/add/'+data+'/products" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
 								}
-								
 							}
-							
 							
 							return str;
 						}

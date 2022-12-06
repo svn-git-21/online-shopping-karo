@@ -131,25 +131,28 @@
 			</hr>
 		</div>
 		<div class="col-xs-12">
-			<div style="overflow: auto">
-				<!-- Products table for Admin -->
-				<table id="adminProductsTable"
-					class="table table-striped table-bordered">
-					<thead>
-						<tr>
-							<th>Id</th>
-							<th>&#160;</th>
-							<th>Name</th>
-							<th>Brand</th>
-							<th>Quantity</th>
-							<th>Unit Price</th>
-							<th>Active</th>
-							<th>Edit</th>
-						</tr>
-					</thead>
-				</table>
+			<div class="container-fluid">
+				<div class="table-responsive">
+					<table id="adminProductsTable"
+						class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Quantity</th>
+								<th>Unit Price</th>
+								<th>Active</th>
+								<th>Edit</th>
+							</tr>
+						</thead>
+					</table>
 
+				</div>
 			</div>
+			<!-- Products table for Admin -->
+
 		</div>
 	</div>
 
@@ -164,7 +167,7 @@
 					</button>
 					<h4 class="modal-title">Add New Category</h4>
 				</div>
-				
+
 				<div class="modal-body">
 					<!-- Category Form -->
 					<sf:form id="categoryForm" modelAttribute="category"
@@ -187,13 +190,14 @@
 									id="category_description" class="form-control" />
 							</div>
 						</div>
-						
+
 						<div class="form-group">
 							<div class="col-md-offset-4 col=md-8">
-							<input type="submit" value="Add Category" class="btn btn-primary"/>
+								<input type="submit" value="Add Category"
+									class="btn btn-primary" />
 							</div>
 						</div>
-						
+
 					</sf:form>
 				</div>
 			</div>
